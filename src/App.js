@@ -81,7 +81,7 @@ function App() {
                         messages: [
                             {
                                 role: "user",
-                                content: `Roast this GitHub profile in a paragraph, only generate roast text, Don't mention here is roast : 
+                                content: `Roast this GitHub profile very badly in a paragraph, only generate roast text : 
                                 ${prompt}`,
                             },
                         ],
