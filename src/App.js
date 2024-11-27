@@ -2,6 +2,7 @@ import Groq from "groq-sdk";
 import { useState } from "react";
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import ClipLoader from "react-spinners/ClipLoader";
 function App() {
     const [username, setUsername] = useState('');
     const [roasting, setRoasting] = useState(false);
@@ -103,14 +104,14 @@ function App() {
         }
     }
 
-    return (<div className="flex justify-center items-center min- h-[100vh] bg-gray-100">
+    return (<div className="flex justify-center items-center min-h-[100vh] bg-gray-100">
         <Toaster />
         <div className="flex justify-center items-center flex-col gap-6 w-[500px] shadow-xl rounded-lg p-6 bg-white">
             <p className="font-extrabold text-[30px]">GitHub Profile Roaster</p>
             <p className="text-gray-600 font-bold">Type your username and face the roast! 🔥</p>
             <input className="p-4 rounded-xl w-[80%] border-2 border-gray-400" placeholder="Enter Your GitHub Username" onChange={(e) =>
                 setUsername(e.target.value)} value={username}></input>
-            <button onClick={roastfunc} className={`bg-[#2463EB] p-4 text-white border-none w-[80%] rounded-xl font-bold ${roasting ? 'bg-blue-500 cursor-not-allowed' : ""}`}>{roasting ? 'roasting' : 'roast'}</button>
+            <button onClick={roastfunc} className={`bg-[#2463EB] p-4 text-white border-none w-[80%] rounded-xl font-bold ${roasting ? 'bg-blue-500 cursor-not-allowed pt-2 pb-2' : ""}`}>{roasting ? <ClipLoader color={"#fff"} /> : 'roast'}</button>
             <p className="text-gray-600 font-semibold">Made with ❤️ by <span className="text-[#2463EB]"><a href="https://github.com/AnmolTutejaGitHub" target="_blank">Anmol Tuteja</a></span></p>
             <p>{roast}</p>
         </div>
